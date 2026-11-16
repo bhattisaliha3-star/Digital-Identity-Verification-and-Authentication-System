@@ -46,5 +46,3 @@ public abstract class Identity {
     public abstract void displayIdentityDetails();
 
 }
-    
-
