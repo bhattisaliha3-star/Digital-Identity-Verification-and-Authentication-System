@@ -1,15 +1,37 @@
 package com.identity.verification;
+import java.util.ArrayList;
+import com.identity.verification.model.Identity;
+import com.identity.verification.model.NationalID;
 
 public class IdentityManager {
-    private String registeredCNIC;
+    private ArrayList<Identity> registeredIdentities;
 
-    public IdentityManager(String registeredCNIC) {
-        this.registeredCNIC = registeredCNIC;
+    public IdentityManager() {
+        registeredIdentities = new ArrayList<>();
+
     }
 
-    public boolean verifyIdentity(String enteredCNIC) {
-        Verification verification = new Verification();
-        return verification.verifyCNIC(registeredCNIC, enteredCNIC);
+        public boolean registerIdentity(Identity identity) {
+
+        if (identity == null) {
+            return false;
+        }
+
+        if (identity instanceof NationalID) {
+
+            NationalID nationalID = (NationalID) identity;
+            String cnic = nationalID.getCnicNumber();
+
+            if (cnic == null) {
+                return false;
+
+            }
+       registeredIdentities.add(identity); 
+       
+            return true;
+        } 
+        return false;
+        }
     }
     
-}
+
