@@ -1,20 +1,15 @@
+
 package com.identity.verification;
 
 public class Verification {
-    
-  public boolean verifyCNIC( String registeredCNIC ,String enteredCNIC) {
 
+    public boolean verifyIdentity(String registeredIdentity,
+                                  String enteredIdentity) {
 
-    if(registeredCNIC == null || enteredCNIC == null) {
-        return false;
+        if (registeredIdentity == null || enteredIdentity == null) {
+            return false;
+        }
 
-
+        return registeredIdentity.equals(enteredIdentity);
     }
-
-    return registeredCNIC.equals(enteredCNIC);
-  }
-
-
-
-
 }
